@@ -177,3 +177,74 @@ if (session()->has('user_id')) {
 ---
 
 These features in Laravel streamline common tasks, from managing URLs and request data to handling sessions and localization, making it easier to build robust, user-friendly applications.
+
+
+## URL Generation
+1. **Current URL:** $currentUrl = url()->current();
+2. **Previous URL:** $previousUrl = url()->previous();
+3. **Absolute URL:** $absoluteUrl = url('/');
+4. **Route URL:** $routeUrl = route('home');
+5. **Action URL:** $actionUrl = action('HomeController@index');
+6. **Asset URL:** $assetUrl = asset('css/style.css');
+7. **Full URL with Query String:** $fullUrl = url()->full();
+8. **Secure URL:** $secureUrl = url()->secure();
+9. **Current Route Name:** $currentRouteName = route()->current()->getName();
+10. **Generate URL Named Route:** $namedRouteUrl = route('profile', ['id' => 1]);
+
+## Request Data
+1. **From GET or POST:** $data = request()->all();
+2. **From Query String:** $data = request()->query();
+3. **From Route Parameters:** $data = request()->route()->parameters();
+4. **From Request Headers:** $data = request()->header();
+5. **From Request Cookies:** $data = request()->cookie();
+6. **From Request Files:** $data = request()->file();
+7. **From Request Input:** $data = request()->input();
+8. **From Request JSON:** $data = request()->json();
+
+## Cookies
+1. **Set Cookie:** $cookie = cookie('name', 'value', 60);
+2. **Get Cookie:** $cookie = request()->cookie('name');
+3. **Delete Cookie:** $cookie = cookie('name', null);
+
+## Session
+1. **Set Session:** $session = session('name', 'value');
+2. **Get Session:** $session = session('name');
+3. **Delete Session:** $session = session()->forget('name');
+4. **Flush Session:** $session = session()->flush();
+ 
+## Flash Session
+1. **Set Flash Session:** $flashSession = session()->flash('name', 'value');
+2. **Get Flash Session:** $flashSession = session('name');
+3. **Keep Flash Session:** $flashSession = session()->keep('name');
+
+## Redirect
+1. **Redirect to URL:** $redirect = redirect('/');
+2. **Redirect to Route:** $redirect = redirect()->route('home');
+3. **Redirect to Action:** $redirect = redirect()->action('HomeController@index');
+4. **Redirect to Controller Action:** $redirect = redirect()->controller('HomeController@index');
+5. **Redirect to Named Route:** $redirect = redirect()->route('profile', ['id' => 1]);
+6. **Redirect to Named Route with Query String:** $redirect = redirect()->route('profile', ['id' => 1])->query(['name' => 'Raushan Kumar']);
+ 
+## View
+1. **Render View:** $view = view('home');
+2. **Render View with Data:** $view = view('home', ['name' => 'Raushan Kumar']);
+3. **Render View with Data and Merge:** $view = view('home', ['name' => 'Raushan Kumar'])->with('email', 'raushan@dev.com');
+4. **Render View with Data and Share:** $view = view('home', ['name' => 'Raushan Kumar'])->share('email', 'raushan@dev.com');
+5. **Render View with Data and Share Named:** $view = view('home', ['name' => 'Raushan Kumar'])->with('email', 'raushan@dev.com')->withName('user'); 
+ 
+## Response
+1. **Create Response:** $response = response('Hello World');
+2. **Create Response with Data:** $response = response('Hello World')->header('Content-Type', 'text/plain');
+3. **Create Response with JSON:** $response = response()->json(['name' => 'Raushan Kumar']);
+4. **Create Response with JSONP:** $response = response()->json(['name' => 'Raushan Kumar'])->jsonp('callback');
+5. **Create Response with Redirect:** $response = response()->redirect('/');
+
+## Sending Mail
+1. **Send Mail:** $mail = Mail::to('raushan@dev.com')->send(new WelcomeMail());
+2. **Send Mail with Data:** $mail = Mail::to('raushan@dev.com')->send(new WelcomeMail(['name' => 'Raushan Kumar']));
+3. **Send Mail with View:** $mail = Mail::to('raushan@dev.com')->view('emails.welcome');
+ 
+## Localization
+1. **Set Locale:** $locale = app()->setLocale('en');
+2. **Get Locale:** $locale = app()->getLocale();
+3. **Get Supported Locales:** $supportedLocales = app()->getSupportedLocales();
